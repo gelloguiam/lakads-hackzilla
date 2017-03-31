@@ -22,7 +22,7 @@ module.exports = {
     },
 
     home: function(req, res, next) {
-        AuthenticateLoggedIn(req, res);
+        // AuthenticateLoggedIn(req, res);
 
         res.render('home', { title: 'Express' });
     },
