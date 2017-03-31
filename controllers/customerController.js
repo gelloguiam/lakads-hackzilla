@@ -23,9 +23,9 @@ module.exports = {
     },
 
     /**
-     * customerController.show()
+     * customerController.showById()
      */
-    show: function (req, res) {
+    showById: function (req, res) {
         var id = req.params.id;
         customerModel.findOne({_id: id}, function (err, customer) {
             if (err) {
@@ -34,7 +34,49 @@ module.exports = {
                     error: err
                 });
             }
-            if (!customer) {
+            if (!customer) {I
+                return res.status(404).json({
+                    message: 'No such customer'
+                });
+            }
+            return res.json(customer);
+        });
+    },
+
+    /**
+     * customerController.showByHandle()
+     */
+    showByHandle: function (req, res) {
+        var twitter_handle = req.params.twitter_handle;
+        customerModel.findOne({twitter_handle: twitter_handle}, function (err, customer) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when getting customer.',
+                    error: err
+                });
+            }
+            if (!customer) {I
+                return res.status(404).json({
+                    message: 'No such customer'
+                });
+            }
+            return res.json(customer);
+        });
+    },
+
+    /**
+     * customerController.showByToken()
+     */
+    showByToken: function (req, res) {
+        var token = req.params.token;
+        customerModel.findOne({token: token}, function (err, customer) {
+            if (err) {
+                return res.status(500).json({
+                    message: 'Error when getting customer.',
+                    error: err
+                });
+            }
+            if (!customer) {I
                 return res.status(404).json({
                     message: 'No such customer'
                 });
@@ -47,7 +89,10 @@ module.exports = {
      * customerController.create()
      */
     create: function (req, res) {
-        var customer = new customerModel({			name : req.body.name,			twitter_handle : req.body.twitter_handle,			access_token : req.body.access_token,			interests : req.body.interests
+        var customer = new customerModel({
+			name : req.body.name,
+			twitter_handle : req.body.twitter_handle,
+			access_token : req.body.access_token,
         });
 
         customer.save(function (err, customer) {
@@ -79,7 +124,11 @@ module.exports = {
                 });
             }
 
-            customer.name = req.body.name ? req.body.name : customer.name;			customer.twitter_handle = req.body.twitter_handle ? req.body.twitter_handle : customer.twitter_handle;			customer.access_token = req.body.access_token ? req.body.access_token : customer.access_token;			customer.interests = req.body.interests ? req.body.interests : customer.interests;			
+            customer.name = req.body.name ? req.body.name : customer.name;
+			customer.twitter_handle = req.body.twitter_handle ? req.body.twitter_handle : customer.twitter_handle;
+			customer.access_token = req.body.access_token ? req.body.access_token : customer.access_token;
+			customer.interests = req.body.interests ? req.body.interests : customer.interests;
+			
             customer.save(function (err, customer) {
                 if (err) {
                     return res.status(500).json({
