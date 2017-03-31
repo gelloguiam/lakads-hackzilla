@@ -48,7 +48,7 @@ app.use('/', index);
 app.use('/userRoutes', users);
 
 // mongoose
-mongoose.connect('mongodb://localhost/passport_local_mongoose');
+mongoose.connect('mongodb://localhost/lakads_db');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
