@@ -29,7 +29,7 @@ module.exports = {
     },
 
     map: function(req, res, next) {
-        AuthenticateLoggedIn(req, res);
+        // AuthenticateLoggedIn(req, res);
 
         res.render('map', { title: 'Map', username: 'Hackzilla' });
     },

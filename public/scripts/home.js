@@ -70,7 +70,7 @@ $(document).ready(function(){
         $("#promo-slots").val("");
         $("#promo-add").val("");
 
-        window.location.replace("/home");
+        // window.location.replace("/home");
     });
 
     $("#edit-promo-form").on('submit', function(){
