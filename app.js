@@ -4,9 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+
+var http = require('http');
+var passport = require('passport');
+var mongoose = require('mongoose');
+var LocalStrategy = require('passport-local').Strategy;
+
+var User = require('./models/userModel');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/userRoutes');
 
 var app = express();
 
@@ -21,9 +29,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'ang gwapo ni almer mendoza',
+  resave: true,
+  saveUninitialized: true
+}));
 
+// passport
+app.use(passport.initialize());
+app.use(passport.session()); 
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+// routes
 app.use('/', index);
-app.use('/users', users);
+app.use('/userRoutes', users);
+
+// mongoose
+mongoose.connect('mongodb://localhost/passport_local_mongoose');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
