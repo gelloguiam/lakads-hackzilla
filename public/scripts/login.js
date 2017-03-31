@@ -15,12 +15,45 @@ $(document).ready(function(){
         $("#login-form-wrapper").show();
     });
 
-});
+    // post request for register
+    $("#register").on('submit', function(){
+        console.log("reg submit");
+        var username = $("#reg-username").val();
+        var company_name = $("#reg-company-name").val();
+        var password = $("#reg-password").val();
 
-var map;
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 14.5995, lng: 120.9842},
-        zoom: 8
+        console.log(username + " " + company_name + " " + password);
+
+        $.post("/", {
+            username: username,
+            company_name: company_name,
+            password: password,
+            isDeleted: false,
+            promos: []
+        });
+
+        $("#reg-username").val("");
+        $("#reg-company-name").val("");
+        $("#reg-password").val("");
+
     });
-}
+
+    // post request for login
+    $("#login").on('submit', function(){
+        console.log("login submit");
+        var username = $("#log-username").val();
+        var password = $("#log-password").val();
+
+        console.log(username + " " + password);
+
+        $.post("/", {
+            username: username,
+            password: password,
+        });
+
+        $("#log-username").val("");
+        $("#log-password").val("");
+
+    });
+
+});

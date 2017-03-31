@@ -10,7 +10,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDWSbrVdCcnyiXm494BdpHi0nOIY6P-Mc&callback=initMap" async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDWSbrVdCcnyiXm494BdpHi0nOIY6P-Mc&callback=initMap" async defer></script> -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
     <script src="/scripts/home.js"></script>
 </head>
@@ -142,8 +142,8 @@
     </div>
 
     <!-- Modal Structure -->
-    <div id="add-promo-form" class="modal">
-        <form class="col s12">
+    <div id="add-promo-form-wrapper" class="modal">
+        <form class="col s12" id="add-promo-form">
 
             <div class="modal-content">
                 <h4>Add Promo</h4>
@@ -166,7 +166,14 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="1000" id="slots" type="number" class="validate">
+                            <input placeholder="Lorem Ipsum" id="promo-add" type="text" class="validate">
+                            <label for="promo-add">Promo Address</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="1000" id="promo-slots" type="number" class="validate">
                             <label for="slots">Slots</label>
                         </div>
                     </div>
@@ -207,8 +214,8 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="1000" id="slots" type="number" class="validate">
-                            <label for="slots">Slots</label>
+                            <input placeholder="1000" id="promo-slots" type="number" class="validate">
+                            <label for="promo-slots">Slots</label>
                         </div>
                     </div>
 
@@ -223,7 +230,7 @@
     </div>
 
 
-    <a id="add-promo" class="btn-floating btn-large waves-effect waves-light" href="#add-promo-form"><i class="material-icons">add</i></a>
+    <a id="add-promo" class="btn-floating btn-large waves-effect waves-light" href="#add-promo-form-wrapper"><i class="material-icons">add</i></a>
     <div id="map"></div>
 
 

@@ -39,7 +39,7 @@ div {
 #register-form-wrapper {
     position: absolute;
     width: 700px;
-    margin: 25px auto 0 auto;
+    margin: 8% auto 0 auto;
     text-align: center;
     z-index: 1000;
     margin-left: calc(50% - 350px);

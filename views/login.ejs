@@ -9,7 +9,6 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDWSbrVdCcnyiXm494BdpHi0nOIY6P-Mc&callback=initMap" async defer></script>
     <script src="/scripts/login.js"></script>
 </head>
 
@@ -37,12 +36,12 @@
         <img src="/images/logo.png" id="app-logo">
         <form id="login">
             <div class="input-field col s12">
-                <input id="username" type="text" class="validate">
-                <label for="username">Username</label>
+                <input id="log-username" type="text" class="validate">
+                <label for="log-username">Username</label>
             </div>
             <div class="input-field col s12">
-                <input id="password" type="password" class="validate">
-                <label for="password">Password</label>
+                <input id="log-password" type="password" class="validate">
+                <label for="log-password">Password</label>
             </div>
             <input type="submit" value="Login" class="btn"/>
         </form>
@@ -54,21 +53,20 @@
         <div class="row">
             <form id="register">
                 <div class="input-field col s12">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Business Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="confirm-password" type="password" class="validate">
-                    <label for="confirm-password">Reenter Password</label>
+                    <input id="reg-username" type="text" class="validate">
+                    <label for="reg-username">Username</label>
                 </div>
                 <div class="input-field col s12">
-                    <input id="address" type="text" class="validate">
-                    <label for="address">Address</label>
-                    <div id="map"></div>
+                    <input id="reg-company-name" type="text" class="validate">
+                    <label for="reg-company-name">Company Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="reg-password" type="password" class="validate">
+                    <label for="reg-password">Password</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="reg-confirm-password" type="password" class="validate">
+                    <label for="reg-confirm-password">Reenter Password</label>
                 </div>
                 <input type="submit" value="Register" class="btn"/>
             </form>
