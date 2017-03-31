@@ -11,6 +11,9 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'Express' });
 });
 
+router.get('/map', function(req, res, next) {
+  res.render('map', { title: 'Express' });
+
 /* GET home page. */
 router.get('/corstest', function(req, res, next) {
     res.send({
