@@ -38,7 +38,10 @@ $(document).ready(function(){
                 keywords :  keywords,
                 deleted : deleted
             },
-            contentType:"application/json",
+            headers: {
+                'Accept': 'application/json;',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
             dataType:"json",
             success: function(response){
                 console.log(response);
