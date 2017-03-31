@@ -11,7 +11,8 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 
-var User = require('./models/userModel');
+var Customer = require('./models/customerModel');
+var User = require('./models/userModel')(Customer);
 
 var index = require('./routes/index');
 var users = require('./routes/userRoutes');
