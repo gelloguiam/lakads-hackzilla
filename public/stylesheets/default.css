@@ -1,0 +1,28 @@
+body {
+    background-image: url("../images/pattern.png");
+}
+
+div {
+    /*border: solid 1px red;*/
+}
+
+#brand-logo {
+    height: 85px;
+    margin-top: 10px;
+}
+
+nav {
+    height: 60px !important;
+    line-height: 60px;
+    background-color: #FFCE00;
+    margin-bottom: 50px;
+}
+
+#nav-options {
+    margin-top: 60px;
+    color: #0375B4 !important;
+}
+
+#nav-drop-icon {
+    margin-top: -3px;
+}
