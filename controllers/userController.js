@@ -48,7 +48,7 @@ module.exports = {
      * userController.create()
      */
     create: function (req, res) {
-        userModel.register(new userModel({username: req.body.username}), req.body.password, function(err, user) {
+        userModel.register(new userModel({username: req.body.username, company_name: req.body.company_name}), req.body.password, function(err, user) {
             if (err) {
                 res.send(err);
                 // return res.render('register', {user: user});
