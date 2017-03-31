@@ -11,8 +11,8 @@ var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
 
-var Customer = require('./models/customerModel')();
-var User = require('./models/userModel')();
+var User = require('./models/userModel');
+var Customer = require('./models/customerModel');
 
 var index = require('./routes/index');
 var users = require('./routes/userRoutes');
@@ -46,7 +46,6 @@ passport.deserializeUser(User.deserializeUser());
 
 // routes
 app.use('/', index);
-app.use('/userRoutes', users);
 
 // mongoose
 mongoose.connect('mongodb://localhost/lakads_db');
@@ -66,6 +65,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  console.error(err);
   res.render('error');
 });
 
