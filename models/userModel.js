@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var passportLocalMongoose = require('passport-local-mongoose');
 var Schema   = mongoose.Schema;
 
-module.exports = function (Customer) {
+module.exports = function () {
 	var User = new Schema({
 	'username' : String,
 	'password' : String,
