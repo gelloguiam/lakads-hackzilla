@@ -9,20 +9,20 @@ var User = new Schema({
 	'password' : String,
 	'company_name' : String,
 	'isDeleted' : Boolean,
-	'promos': {
+	'promos': [{
 		name: String,
 		desc: String,
 		longitude: Number,
 		latitude: Number,
 		address: String,
 		slot: Number,
-		customer_availed: Customer,
-		customer_declined: Customer,
-		customer_sent: Customer,
+		customer_availed: [Customer],
+		customer_declined: [Customer],
+		customer_sent: [Customer],
 		image: String,
 		keywords: [String],
 		deleted: Boolean
-	}
+	}]
 });
 
 User.plugin(passportLocalMongoose);
