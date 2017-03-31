@@ -26,4 +26,11 @@ router.post('/customer/',       customerController.create);
 router.put ('/customer/:id',    customerController.update);
 router.delete('/customer/:id',  customerController.remove);
 
+var promoController = require('../controllers/promoController');
+router.get('/promo', promoController.find); //pls add query
+router.post('/promo', promoController.add);
+router.put('/promo/:id', promoController.edit);
+// router.get('', promoController.add);
+
+
 module.exports = router;
