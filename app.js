@@ -45,7 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // routes
 app.use('/', index);
-app.use('/userRoutes', users);
+app.use('/user', users);
 
 // mongoose
 mongoose.connect('mongodb://localhost/passport_local_mongoose');
