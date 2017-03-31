@@ -3,8 +3,8 @@ $(document).ready(function(){
     $(".dropdown-button").dropdown({ hover: false });
     $('.modal').modal();
 
-    $("#add-promo-form").on('submit', function(){
-        console.log("gege");
+    $("#add-promo-form").on('submit', function(e){
+        e.preventDefault(); 
 
         var name = $("#promo-name").val();
         var desc = $("#promo-desc").val();
@@ -15,26 +15,51 @@ $(document).ready(function(){
         var customer_availed = [];
         var customer_declined = [];
         var customer_sent = [];
-        var image = "";
+        var image = "fake_image";
         var keywords =  [];
         var deleted = false;
 
-        console.log(name + " " + desc + " " + slot + " " + address);
+        // console.log(name + " " + desc + " " + slot + " " + address);
 
-        $.post('/', {
-            name : name,
-            desc : desc,
-            slot : slot,
-            address : address,
-            longitude : longitude,
-            latitude : latitude,
-            customer_availed : customer_availed,
-            customer_declined : customer_declined,
-            customer_sent : customer_sent,
-            image : image,
-            keywords :  keywords,
-            deleted : deleted
-        });
+        $.ajax({
+            url: '/promo',
+            type:"POST",
+            data: {
+                name : name,
+                desc : desc,
+                slot : slot,
+                address : address,
+                longitude : longitude,
+                latitude : latitude,
+                customer_availed : customer_availed,
+                customer_declined : customer_declined,
+                customer_sent : customer_sent,
+                image : image,
+                keywords :  keywords,
+                deleted : deleted
+            },
+            contentType:"application/json",
+            dataType:"json",
+            success: function(response){
+                console.log(response);
+            }
+
+        })
+
+        // $.post('/promo', {
+            // name : name,
+            // desc : desc,
+            // slot : slot,
+            // address : address,
+            // longitude : longitude,
+            // latitude : latitude,
+            // customer_availed : customer_availed,
+            // customer_declined : customer_declined,
+            // customer_sent : customer_sent,
+            // image : image,
+            // keywords :  keywords,
+            // deleted : deleted
+        // });
 
         $("#promo-name").val("");
         $("#promo-desc").val("");

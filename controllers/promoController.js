@@ -1,4 +1,6 @@
 exports.add = (req, res, next) => {
+    // var body = JSON.parse(req.body);
+    console.log(req.body);
     res.send('Export.add');
 };
 
