@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('.modal').modal();
 
     $("#add-promo-form").on('submit', function(e){
-        e.preventDefault(); 
+        e.preventDefault();
 
         var name = $("#promo-name").val();
         var desc = $("#promo-desc").val();
@@ -69,6 +69,7 @@ $(document).ready(function(){
         $("#promo-slots").val("");
         $("#promo-add").val("");
 
+        window.location.replace("/home");
     });
 
     $("#edit-promo-form").on('submit', function(){
@@ -93,6 +94,8 @@ $(document).ready(function(){
         $("#promo-desc").val("");
         $("#promo-slots").val("");
         $("#promo-add").val("");
+
+        window.location.replace("/home");
 
     });
 

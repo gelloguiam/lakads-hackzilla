@@ -2,7 +2,7 @@ var Promo = require('../models/promoModel.js');
 
 exports.add = (req, res, next) => {
 
-    var promo = new Promo({ 
+    var promo = new Promo({
         name                :       req.body.name,
         desc                :       req.body.desc,
         slot                :       req.body.slot,
@@ -16,7 +16,7 @@ exports.add = (req, res, next) => {
         keywords            :       req.body.keywords,
         deleted             :       req.body.deleted
     });
-    
+
     promo.save(function (err, customer) {
       if (err) {
         return res.status(500).json({
@@ -46,8 +46,15 @@ exports.edit = (req, res, next) => {
 
 
 exports.find = (req, res, next) => {
-    res.send('Export.find');
-
+    Promo.find(function (err, users) {
+        if (err) {
+            return res.json({
+                message: 'Error when getting user.',
+                error: err
+            });
+        }
+        return res.status(200).json(users);
+    });
 };
 
 
