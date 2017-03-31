@@ -44,7 +44,7 @@ $(document).ready(function(){
 
         console.log(username + " " + password);
 
-        $.post("/", {
+        $.post("/user/login", {
             username: username,
             password: password,
         });
