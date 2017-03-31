@@ -1,45 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="/stylesheets/default.css">
-    <link rel="stylesheet" href="/stylesheets/map.css">
+    <title><%=title %></title>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+    <% include partials/head %>
+
+    <link rel="stylesheet" href="/stylesheets/map.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIcdenofJLZDSgYKjiQyiiMjk6UpqIKSE&libraries=visualization&callback=initMap" async defer></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
     <script src="/scripts/map.js"></script>
+
 </head>
 
 <body>
 
-    <nav>
-        <div class="container">
-            <div class="nav-wrapper" id="navigation">
-                <a href="/home" class="brand-logo">
-                    <img src="/images/logo.png" id="brand-logo"/>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a href="/map">Heat Map</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-button" href="#!" data-activates="nav-options">
-                            Freelancer<i class="material-icons right" id="nav-drop-icon">arrow_drop_down</i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <ul id="nav-options" class="dropdown-content">
-        <li><a href="#!">Settings</a></li>
-        <li><a href="#!">Logout</a></li>
-    </ul>
+    <% include partials/navigation %>
 
     <div class="container">
         <h5>Promos</h5>
