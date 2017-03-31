@@ -19,7 +19,7 @@ module.exports = {
                     error: err
                 });
             }
-            return res.status(200).json(users);
+            return res.json(user);
         });
     },
 
@@ -63,9 +63,22 @@ module.exports = {
     /**
      * userController.login()
      */
-    login: function (req, res) {
-        console.log("logged in");
-        res.redirect('/home');
+    login: function (req, res, next) {
+        passport.authenticate('local', function (err, user, info) {
+            if (err) {
+                res.status(500).send('Ups. Something broke!');
+            } else if (info) {
+                res.status(401).send('Unauthorized');
+            } else {
+                req.login(user, function(err) {
+                    if (err) {
+                        res.status(500).send('Ups.');
+                    } else {
+                        res.redirect('/home');
+                    }
+                });
+            }
+        })(req, res, next);
     },
 
     /**
