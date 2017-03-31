@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var router = express.Router();
 
 var http = require('http');
 var passport = require('passport');
@@ -30,16 +31,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
+app.use(require('express-session')({
   secret: 'ang gwapo ni almer mendoza',
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: false,
+  cookie : { secure : false, maxAge : (4 * 60 * 60 * 1000) }, // 4 hours
 }));
 
 // passport
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(User.createStrategy());
+
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
