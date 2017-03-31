@@ -11,5 +11,12 @@ router.get('/home', function(req, res, next) {
   res.render('home', { title: 'Express' });
 });
 
+/* GET home page. */
+router.get('/corstest', function(req, res, next) {
+    res.send({
+        source: 'this',
+        stringThingy: 'something awesome goes here which is actually good news'
+    });
+});
 
 module.exports = router;
