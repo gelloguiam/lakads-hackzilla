@@ -1,0 +1,31 @@
+body {
+    background: #ffce00;
+    text-align: center;
+}
+.container {
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 100pt;
+    font-weight: bolder;
+    margin-bottom: -10px;
+}
+
+img {
+    width: 400px;
+    margin-bottom: -75px;
+    animation: emph 2s;
+}
+
+@keyframes emph {
+    0% {
+        transform: rotateZ(0);
+    }
+    50% {
+        transform: rotateZ(5deg);
+    }
+    100% {
+        transform: rotateZ(0);
+    }
+}

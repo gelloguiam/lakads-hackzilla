@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/stylesheets/home.css" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDWSbrVdCcnyiXm494BdpHi0nOIY6P-Mc&callback=initMap" async defer></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
+    <script src="/scripts/home.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="nav-wrapper" id="navigation">
+                <a href="#!" class="brand-logo">
+                    <img src="/images/logo.png" id="brand-logo"/>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a class="dropdown-button" href="#!" data-activates="nav-options">
+                            Freelancer<i class="material-icons right" id="nav-drop-icon">arrow_drop_down</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ul id="nav-options" class="dropdown-content">
+        <li><a href="#!">Settings</a></li>
+        <li><a href="#!">Logout</a></li>
+    </ul>
+
+    <div class="container">
+        <h5>Promos</h5>
+
+        <div id="promo-wrapper" class="row">
+
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title promo-name">Chicken Joy 50% off</span>
+                        <p>Lorem ipsum. Hello World!</p>
+                        <p>30/50</p>
+                        <p>200 ads sent</p>
+                        <p>5 users declined</p>
+                    </div>
+                    <div class="card-action promo-command">
+                        <a href="#edit-promo-form"><i class="material-icons">mode_edit</i></a>
+                        <a href="#"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title promo-name">Chicken Joy 50% off</span>
+                        <p>Lorem ipsum. Hello World!</p>
+                        <p>30/50</p>
+                        <p>200 ads sent</p>
+                        <p>5 users declined</p>
+                    </div>
+                    <div class="card-action promo-command">
+                        <a href="#edit-promo-form"><i class="material-icons">mode_edit</i></a>
+                        <a href="#"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title promo-name">Chicken Joy 50% off</span>
+                        <p>Lorem ipsum. Hello World!</p>
+                        <p>30/50</p>
+                        <p>200 ads sent</p>
+                        <p>5 users declined</p>
+                    </div>
+                    <div class="card-action promo-command">
+                        <a href="#edit-promo-form"><i class="material-icons">mode_edit</i></a>
+                        <a href="#"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title promo-name">Chicken Joy 50% off</span>
+                        <p>Lorem ipsum. Hello World!</p>
+                        <p>30/50</p>
+                        <p>200 ads sent</p>
+                        <p>5 users declined</p>
+                    </div>
+                    <div class="card-action promo-command">
+                        <a href="#edit-promo-form"><i class="material-icons">mode_edit</i></a>
+                        <a href="#"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title promo-name">Chicken Joy 50% off</span>
+                        <p>Lorem ipsum. Hello World!</p>
+                        <p>30/50</p>
+                        <p>200 ads sent</p>
+                        <p>5 users declined</p>
+                    </div>
+                    <div class="card-action promo-command">
+                        <a href="#edit-promo-form"><i class="material-icons">mode_edit</i></a>
+                        <a href="#"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title promo-name">Chicken Joy 50% off</span>
+                        <p>Lorem ipsum. Hello World!</p>
+                        <p>30/50</p>
+                        <p>200 ads sent</p>
+                        <p>5 users declined</p>
+                    </div>
+                    <div class="card-action promo-command">
+                        <a href="#edit-promo-form"><i class="material-icons">mode_edit</i></a>
+                        <a href="#"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="add-promo-form" class="modal">
+        <form class="col s12">
+
+            <div class="modal-content">
+                <h4>Add Promo</h4>
+
+                <div class="row">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="50% Chicken Joy" id="promo-name" type="text" class="validate">
+                            <label for="promo-name">Promo Name</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Lorem Ipsum" id="promo-desc" type="text" class="validate">
+                            <label for="promo-desc">Promo Description</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="1000" id="slots" type="number" class="validate">
+                            <label for="slots">Slots</label>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <input type="submit" name="" value="Submit" class="modal-action modal-close waves-effect waves-green btn-flat">
+            </div>
+        </form>
+
+    </div>
+
+
+    <!-- Modal Structure -->
+    <div id="edit-promo-form" class="modal">
+        <form class="col s12">
+
+            <div class="modal-content">
+                <h4>Edit Promo</h4>
+
+                <div class="row">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="50% Chicken Joy" id="promo-name" type="text" class="validate">
+                            <label for="promo-name">Promo Name</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Lorem Ipsum" id="promo-desc" type="text" class="validate">
+                            <label for="promo-desc">Promo Description</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="1000" id="slots" type="number" class="validate">
+                            <label for="slots">Slots</label>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <input type="submit" name="" value="Submit" class="modal-action modal-close waves-effect waves-green btn-flat">
+            </div>
+        </form>
+
+    </div>
+
+
+    <a id="add-promo" class="btn-floating btn-large waves-effect waves-light" href="#add-promo-form"><i class="material-icons">add</i></a>
+    <div id="map"></div>
+
+
+</body>
+
+</html>
