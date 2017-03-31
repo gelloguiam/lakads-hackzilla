@@ -64,7 +64,8 @@ module.exports = {
      * userController.login()
      */
     login: function (req, res) {
-        res.redirect('/');
+        console.log("logged in");
+        res.redirect('/home');
     },
 
     /**
@@ -98,7 +99,7 @@ module.exports = {
 			user.company_name = req.body.company_name ? req.body.company_name : user.company_name;
 			user.isDeleted = req.body.isDeleted ? req.body.isDeleted : user.isDeleted;
 			user.promos = req.body.promos ? req.body.promos : user.promos;
-			
+
             user.save(function (err, user) {
                 if (err) {
                     return res.status(500).json({
