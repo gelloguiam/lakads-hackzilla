@@ -24,12 +24,10 @@ $(document).ready(function(){
 
         console.log(username + " " + company_name + " " + password);
 
-        $.post("/", {
+        $.post("/user", {
             username: username,
             company_name: company_name,
-            password: password,
-            isDeleted: false,
-            promos: []
+            password: password
         });
 
         $("#reg-username").val("");
