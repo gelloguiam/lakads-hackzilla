@@ -76,7 +76,7 @@ module.exports = {
      * userController.login()
      */
     login: function (req, res, next) {
-        res.send('Logged in!');
+        res.redirect('/home');
     },
 
     /**
