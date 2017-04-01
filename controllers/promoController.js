@@ -1,7 +1,6 @@
 var Promo = require('../models/promoModel.js');
 
 exports.add = (req, res, next) => {
-
     var promo = new Promo({ 
         name                :       req.body.name,
         desc                :       req.body.desc,
@@ -20,34 +19,29 @@ exports.add = (req, res, next) => {
     promo.save(function (err, customer) {
       if (err) {
         return res.status(500).json({
-                    message: 'Error when creating customer',
-                    error: err
-                });
+            message: 'Error when creating customer',
+            error: err
+        });
       }
 
       return res.status(201).json(promo);
     });
-
-
-    /*console.log(req.body);
-    res.send('Export.add');*/
 };
 
 
 exports.edit = (req, res, next) => {
-
     let id;
 
     if(req.params.id) {
         id = req.params.id
     }
+
     res.send(`Export.put ${id}`);
 };
 
 
 exports.find = (req, res, next) => {
     res.send('Export.find');
-
 };
 
 
