@@ -1,15 +1,33 @@
 var map, heatmap;
 
 function initMap() {
+
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 18,
-        center: {lat: 14.5980, lng: 120.989842},
+        zoom: 14,
+        center: {lat: 14.593871, lng: 121.027475},
         mapTypeId: 'satellite'
     });
 
     heatmap = new google.maps.visualization.HeatmapLayer({
         data: getPoints(),
         map: map
+    });
+
+    mapPromos();
+}
+
+function mapPromos() {
+    var markers, promos;
+    $.get( "/promo", function( data ) {
+        promos = data;
+        promos.forEach(function(promo){
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(promo.latitude, promo.longitude),
+                map: map,
+                title: promo.name
+            });
+            // console.log("heheh");
+        });
     });
 }
 
