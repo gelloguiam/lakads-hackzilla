@@ -24,11 +24,26 @@ $(document).ready(function(){
 
         console.log(username + " " + company_name + " " + password);
 
-        $.post("/user", {
-            username: username,
-            company_name: company_name,
-            password: password
+
+        $.ajax({
+            url: '/user',
+            type:"POST",
+            data: {
+                username: username,
+                company_name: company_name,
+                password: password
+            },
+            headers: {
+                'Accept': 'application/json;',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            dataType:"json",
+            success: function(response){
+                console.log(response);
+            }
+
         });
+
 
         $("#reg-username").val("");
         $("#reg-company-name").val("");
@@ -44,9 +59,23 @@ $(document).ready(function(){
 
         console.log(username + " " + password);
 
-        $.post("/user/login", {
-            username: username,
-            password: password,
+        $.ajax({
+            url: '/user/login',
+            type:"POST",
+            data: {
+                username: username,
+                password: password
+            },
+            headers: {
+                'Accept': 'application/json;',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            dataType:"json",
+            success: function(response){
+                console.log(response);
+                window.location.replace('/home');
+            }
+
         });
 
         $("#log-username").val("");

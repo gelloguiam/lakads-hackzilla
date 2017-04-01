@@ -13,19 +13,19 @@ module.exports = {
     },
 
     home: function(req, res, next) {
-        if (!req.user) {
-            return res.redirect('/');
-        } else {
-            res.render('home', { title: 'Express' });
-        }
+        // if (!req.user) {
+        //     return res.redirect('/');
+        // } else {
+            res.render('home', { title: 'Express', username: 'Username' });
+        // }
     },
 
     map: function(req, res, next) {
-        if (!req.user) {
-            return res.redirect('/');
-        } else {
-            res.render('map', { title: 'Express' });
-        }
+        // if (!req.user) {
+        //     return res.redirect('/');
+        // } else {
+            res.render('map', { title: 'Express', username: 'Username' });
+        // }
     },
 
     corstest: function(req, res, next) {

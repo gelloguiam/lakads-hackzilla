@@ -2,15 +2,15 @@ var passport = require('passport');
 var userModel = require('../models/userModel.js');
 
 /**
- * userController.js
- *
- * @description :: Server-side logic for managing users.
- */
+* userController.js
+*
+* @description :: Server-side logic for managing users.
+*/
 module.exports = {
 
     /**
-     * userController.list()
-     */
+    * userController.list()
+    */
     list: function (req, res, next) {
         if (!req.user) {
             return res.send(401);
@@ -28,8 +28,8 @@ module.exports = {
     },
 
     /**
-     * userController.show()
-     */
+    * userController.show()
+    */
     show: function (req, res, next) {
         if (!req.user) {
             return res.send(401);
@@ -53,43 +53,40 @@ module.exports = {
     },
 
     /**
-     * userController.create()
-     */
+    * userController.create()
+    */
     create: function (req, res, next) {
-        if (!req.user) {
-            return res.send(401);
-        } else {
-            userModel.register(new userModel({username: req.body.username, company_name: req.body.company_name}), req.body.password, function(err, user) {
-                if (err) {
-                    res.send(err);
-                    // return res.render('register', {user: user});
-                }
+        userModel.register(new userModel({username: req.body.username, company_name: req.body.company_name}), req.body.password, function(err, user) {
+            if (err) {
+                res.send(err);
+                // return res.render('register', {user: user});
+            }
 
-                passport.authenticate('local')(req, res, function () {
-                    res.redirect('/');
-                });
+            passport.authenticate('local')(req, res, function () {
+                res.redirect('/');
             });
-        }
+        });
     },
 
     /**
-     * userController.login()
-     */
+    * userController.login()
+    */
     login: function (req, res, next) {
+        // console.log("here");
         res.redirect('/home');
     },
 
     /**
-     * userController.logout()
-     */
+    * userController.logout()
+    */
     logout: function (req, res, next) {
         req.logout();
         res.redirect('/');
     },
 
     /**
-     * userController.update()
-     */
+    * userController.update()
+    */
     update: function (req, res, next) {
         if (!req.user) {
             return res.send(401);
@@ -129,8 +126,8 @@ module.exports = {
     },
 
     /**
-     * userController.remove()
-     */
+    * userController.remove()
+    */
     remove: function (req, res, next) {
         if (!req.user) {
             return res.send(401);
