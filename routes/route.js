@@ -32,4 +32,10 @@ router.get('/twitter/login/return', twitterController.log_return);
 router.get('/twitter/callback',     twitterController.callback);
 router.get('/profile',              require('connect-ensure-login').ensureLoggedIn(), twitterController.profile);
 
+var promoController = require('../controllers/promoController');
+router.get('/promo', promoController.find); //pls add query
+router.post('/promo', promoController.add);
+router.put('/promo/:id', promoController.edit);
+// router.get('', promoController.add);
+
 module.exports = router;
