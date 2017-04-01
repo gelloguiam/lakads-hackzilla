@@ -28,16 +28,20 @@ module.exports = {
         }, function (err, httpResponse, body) {
             if (err) return res.send(err);
             else {
+                console.log(body);
                 var twitter_out = body.split("&");
-
-                return res.send({
+                
+                var data = {
                     oauth_token:            oauth_token,
                     oauth_verifier:         oauth_verifier,
                     oauth_token_secret:     twitter_out[1].split("=")[1],
                     user_id:                twitter_out[2].split("=")[1],
                     screen_name:            twitter_out[3].split("=")[1],
-                    x_auth_expires:         twitter_out[4].split("=")[1]
-                });
+                    x_auth_expires:         twitter_out[4].split("=")[1],
+                };
+
+                // return res.send(data);
+                return res.render('twitter_creds', {data: data});
             }
         });
     },
