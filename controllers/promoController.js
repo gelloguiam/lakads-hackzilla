@@ -13,9 +13,24 @@ exports.add = (req, res, next) => {
         customer_declined   :       req.body.customer_declined,
         customer_sent       :       req.body.customer_sent,
         image               :       req.body.image,
-        keywords            :       req.body.keywords,
+        keywords            :       JSON.parse(req.body.keywords),
         deleted             :       req.body.deleted
     });
+
+    // console.log({
+    //     name                :       req.body.name,
+    //     desc                :       req.body.desc,
+    //     slot                :       req.body.slot,
+    //     address             :       req.body.address,
+    //     longitude           :       req.body.longitude,
+    //     latitude            :       req.body.latitude,
+    //     customer_availed    :       req.body.customer_availed,
+    //     customer_declined   :       req.body.customer_declined,
+    //     customer_sent       :       req.body.customer_sent,
+    //     image               :       req.body.image,
+    //     keywords            :       JSON.parse(req.body.keywords),
+    //     deleted             :       req.body.deleted
+    // });
 
     promo.save(function (err, customer) {
       if (err) {

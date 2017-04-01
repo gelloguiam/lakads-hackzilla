@@ -16,7 +16,7 @@ $(document).ready(function(){
         var customer_declined = [];
         var customer_sent = [];
         var image = "fake_image";
-        var keywords =  [];
+        var keywords =  $("#promo-cat").val().toLowerCase().split(",");
         var deleted = false;
 
         var map_url = "https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -33,7 +33,6 @@ $(document).ready(function(){
             console.log(longitude);
             console.log(latitude);
 
-
             $.ajax({
                 url: '/promo',
                 type:"POST",
@@ -48,8 +47,8 @@ $(document).ready(function(){
                     customer_declined : customer_declined,
                     customer_sent : customer_sent,
                     image : image,
-                    keywords :  keywords,
-                    deleted : deleted
+                    deleted : deleted,
+                    keywords :  JSON.stringify(keywords),
                 },
                 headers: {
                     'Accept': 'application/json;',
@@ -57,11 +56,11 @@ $(document).ready(function(){
                 },
                 dataType:"json",
                 success: function(response){
-                    console.log(response);
+                    window.location.replace("/home");
+                    // console.log(keywords);
                 }
 
             });
-
 
         });
 
@@ -70,7 +69,6 @@ $(document).ready(function(){
         $("#promo-slots").val("");
         $("#promo-add").val("");
 
-        // window.location.replace("/home");
     });
 
     $("#edit-promo-form").on('submit', function(){

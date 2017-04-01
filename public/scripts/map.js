@@ -1,9 +1,10 @@
 var map, heatmap;
 
 function initMap() {
+
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: {lat: 14.5980, lng: 120.989842},
+        zoom: 14,
+        center: {lat: 14.593871, lng: 121.027475},
         mapTypeId: 'satellite'
     });
 
