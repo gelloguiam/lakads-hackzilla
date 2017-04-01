@@ -145,6 +145,33 @@ module.exports = {
     },
 
     /**
+     * customerController.dump()
+     */
+    dump_tweet: function (req, res) {
+        var user = req.body.user;
+        var tweet = req.body.tweets;
+        req.body.tweets.forEach(function (customer) {
+            var customer = new customerModel({
+                name : req.body.name,
+                twitter_handle : req.body.twitter_handle,
+                access_token : req.body.access_token,
+            });
+
+            customer.save(function (err, customer) {
+                if (err) {
+                    console.log({
+                        message: '[ERROR] ' + customer,
+                        error: err
+                    });
+                }
+                console.log('[DONE] ' + customer);
+            });
+        });
+
+        res.send('Dump complete!');
+    },
+
+    /**
      * customerController.update()
      */
     update: function (req, res) {
