@@ -28,7 +28,6 @@ module.exports = {
         }, function (err, httpResponse, body) {
             if (err) return res.send(err);
             else {
-                console.log(body);
                 var twitter_out = body.split("&");
                 
                 var data = {
