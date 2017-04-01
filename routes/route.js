@@ -26,4 +26,10 @@ router.post('/customer/',       customerController.create);
 router.put ('/customer/:id',    customerController.update);
 router.delete('/customer/:id',  customerController.remove);
 
+var twitterController = require('../controllers/twitterController.js');
+router.get('/twitter/login',        passport.authenticate('twitter'));
+router.get('/twitter/login/return', twitterController.log_return);
+router.get('/twitter/callback',     twitterController.callback);
+router.get('/profile',              require('connect-ensure-login').ensureLoggedIn(), twitterController.profile);
+
 module.exports = router;

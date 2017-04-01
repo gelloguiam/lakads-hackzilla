@@ -11,6 +11,7 @@ var http = require('http');
 var passport = require('passport');
 var mongoose = require('mongoose');
 var LocalStrategy = require('passport-local').Strategy;
+var TwitterStrategy = require('passport-twitter').Strategy;
 
 var User = require('./models/userModel');
 var Customer = require('./models/customerModel');
@@ -41,6 +42,16 @@ app.use(require('express-session')({
 // passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new TwitterStrategy({
+  consumerKey: 'ZYo3KjfE00026JwA8Wrt0oj2G',
+  consumerSecret: 'QaqZl4gczZGrVLVHPMGVkZUCZOUYVaM5VKjZzqnrL13GyW3zEX',
+  callbackURL: "/twitter/callback"
+}, function(token, tokenSecret, profile, cb) {
+    console.log(token, tokenSecret, profile);
+    return cb(null, profile);
+  }
+));
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
