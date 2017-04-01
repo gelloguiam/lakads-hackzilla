@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Twitter Creds</title>
+</head>
+
+<body>
+    <button onclick="foo()">Click</button>
+    <script>
+        function foo() {
+            window.postMessage(JSON.stringify({
+                oauth_token: "<%= data.oauth_token %>",
+                oauth_verifier: "<%= data.oauth_verifier %>",
+                oauth_token_secret: "<%= data.oauth_token_secret %>",
+                screen_name: "<%= data.screen_name %>",
+                user_id: "<%= data.user_id %>"
+            }), '*')
+        }
+    </script>
+</body>
+
+</html>

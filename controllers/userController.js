@@ -13,7 +13,7 @@ module.exports = {
      */
     list: function (req, res, next) {
         if (!req.user) {
-            return res.next(401);
+            return res.send(401);
         } else {
             userModel.find(function (err, users) {
                 if (err) {
@@ -32,7 +32,7 @@ module.exports = {
      */
     show: function (req, res, next) {
         if (!req.user) {
-            return res.next(401);
+            return res.send(401);
         } else {
             var id = req.params.id;
             userModel.findOne({_id: id}, function (err, user) {
@@ -57,7 +57,7 @@ module.exports = {
      */
     create: function (req, res, next) {
         if (!req.user) {
-            return res.next(401);
+            return res.send(401);
         } else {
             userModel.register(new userModel({username: req.body.username, company_name: req.body.company_name}), req.body.password, function(err, user) {
                 if (err) {
@@ -92,7 +92,7 @@ module.exports = {
      */
     update: function (req, res, next) {
         if (!req.user) {
-            return res.next(401);
+            return res.send(401);
         } else {
             var id = req.params.id;
             userModel.findOne({_id: id}, function (err, user) {
@@ -133,7 +133,7 @@ module.exports = {
      */
     remove: function (req, res, next) {
         if (!req.user) {
-            return res.next(401);
+            return res.send(401);
         } else {
             var id = req.params.id;
             userModel.findByIdAndRemove(id, function (err, user) {
