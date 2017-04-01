@@ -23,6 +23,24 @@ module.exports = {
     },
 
     /**
+     * customerController.list_twitter_creds()
+     */
+    listTwitterCreds: function (req, res) {
+        var customersData = { 
+            __v: false,
+            _id: false,
+            access_token: false,
+            interests: false,
+            isDeleted: false
+        };
+
+        User.find({}, customersData, function (err, customers) {
+            if (err) return next(err);
+            else res.json(customers);
+        });
+    },
+
+    /**
      * customerController.showById()
      */
     showById: function (req, res) {

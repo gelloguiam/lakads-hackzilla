@@ -1,15 +1,3 @@
-var AuthenticateLoggedIn = function (req, res) {
-    if (!req.user) {
-        return res.status(400).send('Must be logged in!\n' + req.user);
-    }
-}
-
-var NotLoggedIn = function (req, res) {
-    if (req.user) {
-        return res.redirect('/home');
-    }
-}
-
 /**
  * pageController.js
  *
@@ -17,29 +5,37 @@ var NotLoggedIn = function (req, res) {
  */
 module.exports = {
     login: function(req, res, next) {
-        NotLoggedIn(req, res);
-
-        res.render('login', { title: 'Login', username: 'Hackzilla' });
+        if (req.user) {
+            return res.redirect('/home');
+        } else {
+            res.render('login', { title: 'Express' });
+        }
     },
 
     home: function(req, res, next) {
-        // AuthenticateLoggedIn(req, res);
-
-        res.render('home', { title: 'Home', username: 'Hackzilla' });
+        if (!req.user) {
+            return res.redirect('/');
+        } else {
+            res.render('home', { title: 'Express' });
+        }
     },
 
     map: function(req, res, next) {
-        // AuthenticateLoggedIn(req, res);
-
-        res.render('map', { title: 'Map', username: 'Hackzilla' });
+        if (!req.user) {
+            return res.redirect('/');
+        } else {
+            res.render('map', { title: 'Express' });
+        }
     },
 
     corstest: function(req, res, next) {
-        AuthenticateLoggedIn(req, res);
-
-        res.send({
-            source: 'this',
-            stringThingy: 'something awesome goes here which is actually good news'
-        });
+        if (!req.user) {
+            return res.redirect('/');
+        } else {
+            res.send({
+                source: 'this',
+                stringThingy: 'something awesome goes here which is actually good news'
+            });
+        }
     }
 };
