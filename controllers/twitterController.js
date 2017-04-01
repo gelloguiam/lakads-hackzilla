@@ -26,7 +26,6 @@ module.exports = {
             form: form,
             method: 'POST'
         }, function (err, httpResponse, body) {
-            console.log(body);
             if (err) return res.send(err);
             else {
                 var twitter_out = body.split("&");
